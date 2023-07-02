@@ -1,0 +1,169 @@
+\documentclass{article}
+\usepackage[cm]{fullpage}
+\usepackage{color}
+\usepackage{fontawesome5}
+\usepackage{hyperref}
+
+\hypersetup{breaklinks=true,%
+colorlinks=true,%
+linkcolor=cyan,%
+urlcolor=black}
+
+\definecolor{MyDarkBlue}{rgb}{0,0.0,0.45}
+
+\newlength{\tabin}
+\setlength{\tabin}{0.5em}
+\newlength{\secsep}
+\setlength{\secsep}{0.1cm}
+
+\setlength{\parindent}{0in}
+\setlength{\parskip}{0in}
+\setlength{\itemsep}{0in}
+\setlength{\topsep}{0in}
+\setlength{\tabcolsep}{0in}
+
+\definecolor{contactgray}{gray}{0.3}
+\pagestyle{empty}
+
+\newcommand{\lineunder}{\vspace*{-8pt} \\ \hspace*{-6pt} \hrulefill \\ \vspace*{-15pt}}
+\newcommand{\name}[1]{\begin{center}\textsc{\Huge#1}\\\end{center}}
+\newcommand{\program}[1]{\begin{center}\textsc{#1}\end{center}}
+\newcommand{\contact}[1]{\begin{center}\color{black}{\small#1}\end{center}}
+
+\newenvironment{tabbedsection}[1]{
+  \begin{list}{}{
+      \setlength{\itemsep}{0pt}
+      \setlength{\labelsep}{0pt}
+      \setlength{\labelwidth}{0pt}
+      \setlength{\leftmargin}{\tabin}
+      \setlength{\rightmargin}{\tabin}
+      \setlength{\listparindent}{0pt}
+      \setlength{\parsep}{0pt}
+      \setlength{\parskip}{0pt}
+      \setlength{\partopsep}{0pt}
+      \setlength{\topsep}{#1}
+    }
+  \item[]
+}{\end{list}}
+
+\newenvironment{nospacetabbing}{
+    \begin{tabbing}
+}{\end{tabbing}\vspace{-1.2em}}
+
+\newenvironment{resume_header}{}{\vspace{0pt}}
+
+\newenvironment{resume_section}[1]{
+  \filbreak
+  \vspace{2\secsep}
+  \textsc{\large#1}
+  \lineunder
+  \begin{tabbedsection}{\secsep}
+}{\end{tabbedsection}}
+
+\newenvironment{resume_education}[4]{
+  \vspace{\secsep}
+  \textbf{#1} \\ 
+  \indent {\small #2} \hfill {\footnotesize#3 (#4)}
+  \begin{tabbedsection}{0pt}
+  \begin{subitems}
+}{\end{subitems}\end{tabbedsection}}
+
+\newenvironment{subitems}{
+  \renewcommand{\labelitemi}{-}
+  \begin{itemize}
+      \setlength{\labelsep}{1em}
+}{\end{itemize}}
+
+\newenvironment{resume_employer}[4]{
+  \vspace{\secsep}
+  \textbf{#1} \\ 
+  \indent {\small #2} \hfill {\footnotesize#3 (#4)}
+  \begin{tabbedsection}{0pt}
+  \begin{subitems}
+}{\end{subitems}\end{tabbedsection}}
+
+\newenvironment{resume_project}[4]{
+  \vspace{\secsep}
+  \textbf{#1} \\ 
+  \indent {\small #2} \hfill {\footnotesize#3 (#4)}
+  \begin{tabbedsection}{0pt}
+  \begin{subitems}
+}{\end{subitems}\end{tabbedsection}}
+
+\newenvironment{resume_certificate}[4]{
+  \vspace{\secsep}
+  \textbf{#1} \\ 
+  \indent {\small #2} \hfill {\footnotesize#3 (#4)}
+  \begin{tabbedsection}{0pt}
+  \begin{subitems}
+}{\end{subitems}\end{tabbedsection}}
+
+\begin{document}
+    \begin{resume_header}
+        \name{Nabil Akbarazzima Fatih}
+        \program{Artificial Intelligence and Data Science Major}
+        \contact{\faIcon{envelope} \href{mailto:nabilakbarazzima@gmail.com}{nabilakbarazzima@gmail.com}
+                 $\mid$ \faIcon{mobile-alt} +4917669341393
+                 $\mid$ \faIcon{linkedin} \href{https://www.linkedin.com/in/nabilfatih/}{Nabil Fatih}
+                 $\mid$ \faIcon{github} \href{https://github.com/nabilfatih}{nabilfatih}}
+    \end{resume_header}
+
+    \begin{resume_section}{Skills}
+        \begin{nospacetabbing}
+            \textbf{Programming Languages:} \= C/C++, Python, TypeScript, JavaScript \LaTeX\\*
+            \textbf{AI \& Data Science:} \> TensorFlow, Python (eg. Scikit-Learn, NumPy, Pandas, Matplotlib)\\*
+            \textbf{Web Development:} \> Node.js, Express, HTML, CSS/SCSS, JavaScript, React/NextJS\\*
+            \textbf{Databases:} \> PostgreSQL, MongoDB, Firebase, Supabase\\*
+            \textbf{Languages:} \> Native in Indonesian; Fluent in English and German\\*
+        \end{nospacetabbing}
+    \end{resume_section}
+
+    \begin{resume_section}{Education}
+        \begin{resume_education}{Ostbayerische Technische Hochschule Regensburg}{Artificial Intelligence and Data Science, B.Sc}{Regensburg, Germany}{2020 - 2023}
+            \item Courseworks: Machine Learning, Big Data, Data Science, Statistics \& Probability, Neural Network
+        \end{resume_education}
+        
+        \begin{resume_education}{Hochschule Kaiserslautern}{Technik, Studienkolleg}{Kaiserslautern, Germany}{March 2020 - August 2020}
+            \item Courseworks: Computer Science, Mathematics, Mechanics, Electronics
+        \end{resume_education}
+    \end{resume_section}
+
+    \begin{resume_section}{Work Experience}
+      \begin{resume_employer}{Wemakefuture AG}{Full Stack Developer, Part-time}{Giessen, Germany}{March 2022 - Present}
+        \item Developed front-end using NextJS, Tailwind CSS and Material UI for styling
+        \item Implemented APIs from Microsoft azure backend functions in NextJS backend
+        \item Created endpoints in cloud azure functions
+      \end{resume_employer}
+
+      \begin{resume_employer}{FibonacciKu}{Founder, Self-employed}{Indonesian}{Feb 2021 - Present}
+        \item Founded the Startup and executed crucial decisions
+        \item Developed back- and front-end of the website using Node.js, MongoDB, HTML, CSS, and JavaScript
+        \item Taught mathematics for Indonesian people around the world via online learning with zoom
+        \item Developed interactive videos (E-Learning) and posted them on youtube
+      \end{resume_employer}
+      
+      \begin{resume_employer}{Nakafa}{Founder, Self-employed}{Indonesian}{Nov 2021 - Present}
+        \item Developed endpoints of the AI products
+        \item Developed REST APIs between Nakafa's server and OpenAI
+        \item Designed the website using 3D rendering with Three JS
+      \end{resume_employer}
+
+      \begin{resume_employer}{Institute for Sustainability}{Working Student, Part-time}{Nürnberg, Germany}{August 2021 - September 2022}
+        \item Analyzed, evaluated, and approved research data
+        \item Developed research in artificial intelligence, data science, and sustainability's area
+        \item Created articles for Institute's social media and achieved up to 166\% new engagement
+      \end{resume_employer}
+
+        \begin{resume_employer}{Appen}{Data Collector, Freelance}{Germany}{April 2021 - Feb 2022}
+          \item Improved the relevancy of the newsfeed for the leading global social media platform
+          \item Collected videos to help drive advances in computer vision applications for a major technology company
+        \end{resume_employer}
+    \end{resume_section}
+
+    \begin{resume_section}{Projects}
+        \begin{resume_project}{Kaggle}{Prediction Competition}{}{June 2021}
+          \item Predicted the auction sale price for a piece of heavy equipment to create a "blue book" for bulldozers using regression in time series data
+          \item Created a neural network model and determined the breed of a dog in an image using TensorFlow
+        \end{resume_project}
+    \end{resume_section}
+\end{document}
