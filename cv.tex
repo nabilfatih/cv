@@ -1,8 +1,16 @@
 \documentclass{article}
-\usepackage[cm]{fullpage}
+\usepackage{tabularx}  % Add this line
 \usepackage{color}
 \usepackage{fontawesome5}
 \usepackage{hyperref}
+\usepackage{geometry}  % Use the geometry package
+
+\geometry{
+ top=1cm,    % Set top margin
+ bottom=1cm, % Set bottom margin
+ left=1.25cm,  % Set left margin
+ right=1.25cm  % Set right margin
+}
 
 \hypersetup{breaklinks=true,%
 colorlinks=true,%
@@ -12,7 +20,7 @@ urlcolor=black}
 \definecolor{MyDarkBlue}{rgb}{0,0.0,0.45}
 
 \newlength{\tabin}
-\setlength{\tabin}{0.5em}
+\setlength{\tabin}{0.1em}
 \newlength{\secsep}
 \setlength{\secsep}{0.1cm}
 
@@ -25,8 +33,8 @@ urlcolor=black}
 \definecolor{contactgray}{gray}{0.3}
 \pagestyle{empty}
 
-\newcommand{\lineunder}{\vspace*{-8pt} \\ \hspace*{-6pt} \hrulefill \\ \vspace*{-15pt}}
-\newcommand{\name}[1]{\begin{center}\textsc{\Huge#1}\\\end{center}}
+\newcommand{\lineunder}{\vspace*{-6pt} \\ \hspace*{-6pt} \hrulefill \\ \vspace*{-15pt}}
+\newcommand{\name}[1]{\begin{center}\textsc{\huge#1}\\\end{center}}
 \newcommand{\program}[1]{\begin{center}\textsc{#1}\end{center}}
 \newcommand{\contact}[1]{\begin{center}\color{black}{\small#1}\end{center}}
 
@@ -50,11 +58,10 @@ urlcolor=black}
     \begin{tabbing}
 }{\end{tabbing}\vspace{-1.2em}}
 
-\newenvironment{resume_header}{}{\vspace{0pt}}
+\newenvironment{resume_header}{}{\vspace{-6pt}}
 
 \newenvironment{resume_section}[1]{
-  \filbreak
-  \vspace{2\secsep}
+  \vspace{1.5\secsep}
   \textsc{\large#1}
   \lineunder
   \begin{tabbedsection}{\secsep}
@@ -109,61 +116,58 @@ urlcolor=black}
     \end{resume_header}
 
     \begin{resume_section}{Skills}
-        \begin{nospacetabbing}
-            \textbf{Programming Languages:} \= C/C++, Python, TypeScript, JavaScript \LaTeX\\*
-            \textbf{AI \& Data Science:} \> TensorFlow, Python (eg. Scikit-Learn, NumPy, Pandas, Matplotlib)\\*
-            \textbf{Web Development:} \> Node.js, Express, HTML, CSS/SCSS, JavaScript, React/NextJS\\*
-            \textbf{Databases:} \> PostgreSQL, MongoDB, Firebase, Supabase\\*
-            \textbf{Languages:} \> Native in Indonesian; Fluent in English and German\\*
-        \end{nospacetabbing}
-    \end{resume_section}
+    \begin{tabularx}{\textwidth}{@{}lX}  
+        \textbf{Programming Languages:} & C/C++, Python, TypeScript, JavaScript, \LaTeX\\
+        \textbf{Back End Development:} & Node.js, Express, Vercel, Microsoft Azure\\
+        \textbf{Front End Development:} & HTML, CSS/SCSS, JavaScript, TypeScript, TailwindCSS, MaterialUI, React/NextJS\\
+        \textbf{AI \& Data Science:} & TensorFlow, Python (eg. Scikit-Learn, NumPy, Pandas, Matplotlib), LLM\\
+        \textbf{Databases:} & PostgreSQL, MongoDB, Firebase, Supabase\\
+        \textbf{Languages:} & Native in Indonesian; Fluent in English and German\\
+    \end{tabularx}
+\end{resume_section}
 
     \begin{resume_section}{Education}
-        \begin{resume_education}{Ostbayerische Technische Hochschule Regensburg}{Artificial Intelligence and Data Science, B.Sc}{Regensburg, Germany}{2020 - 2023}
+        \begin{resume_education}{Ostbayerische Technische Hochschule Regensburg}{Artificial Intelligence and Data Science, B.Sc}{Regensburg, Germany}{2020 - 2024}
             \item Courseworks: Machine Learning, Big Data, Data Science, Statistics \& Probability, Neural Network
         \end{resume_education}
-        
         \begin{resume_education}{Hochschule Kaiserslautern}{Technik, Studienkolleg}{Kaiserslautern, Germany}{March 2020 - August 2020}
             \item Courseworks: Computer Science, Mathematics, Mechanics, Electronics
         \end{resume_education}
     \end{resume_section}
 
     \begin{resume_section}{Work Experience}
-      \begin{resume_employer}{Wemakefuture AG}{Full Stack Developer, Part-time}{Giessen, Germany}{March 2022 - Present}
-        \item Developed front-end using NextJS, Tailwind CSS and Material UI for styling
-        \item Implemented APIs from Microsoft azure backend functions in NextJS backend
-        \item Created endpoints in cloud azure functions
+
+    \begin{resume_employer}{StrategyBridgeAI}{Software Engineer, Full-time}{Munich, Bavaria, Germany (Remote)}{July 2024 - Present}
+        \item Developed web application with a strong focus on the frontend, ensuring a strictly type-safe connection between frontend and backend
+        \item Built the Strategy Console - automated data-driven business analysis platform for companies
+        \item Leveraged Large Language Models (LLM), Next.js, and other cutting-edge technologies for building scalable AI solutions
+        \item Implemented responsive design principles and modern UI/UX practices for an optimal user experience
       \end{resume_employer}
 
-      \begin{resume_employer}{FibonacciKu}{Founder, Self-employed}{Indonesian}{Feb 2021 - Present}
-        \item Founded the Startup and executed crucial decisions
-        \item Developed back- and front-end of the website using Node.js, MongoDB, HTML, CSS, and JavaScript
-        \item Taught mathematics for Indonesian people around the world via online learning with zoom
-        \item Developed interactive videos (E-Learning) and posted them on youtube
-      \end{resume_employer}
+    \begin{resume_employer}{Schneider Electric GmbH}{Software Engineer, Internship}{Regensburg, Germany}{January 2024 - June 2024}
+    \item Led the development of an internal app for non-tech staff to manage databases efficiently. Used Microsoft PowerApps, Power Automate, and Dataverse to streamline operations and reduce IT support reliance.
+    
+    \item Created a user-friendly interface for seamless onboarding and improved user experience. Conducted user testing and feedback sessions to boost user adoption and satisfaction.
+\end{resume_employer}
       
-      \begin{resume_employer}{Nakafa}{Founder, Self-employed}{Indonesian}{Nov 2021 - Present}
-        \item Developed endpoints of the AI products
-        \item Developed REST APIs between Nakafa's server and OpenAI
-        \item Designed the website using 3D rendering with Three JS
+      \begin{resume_employer}{Wemakefuture AG}{Full Stack Developer, Part-time}{Giessen, Germany}{March 2022 - December 2023}
+        \item Built a product from scratch that enables users to synchronize their data across various applications. This involved designing the database, automating backend processes using Zappier and Azure functions, designing a payment gateway with NextJS and Stripe, and creating a website with Tailwind CSS and NextJS. Also developed serverless functions in NextJS API
+        \item Significantly increased the revenue of the company's product, 0codekit, by developing new features. This included creating an AI endpoint in Microsoft Azure function that uses the latest OpenAI API
+        \item Conducted a successful migration of the repository from JavaScript into TypeScript, leading to more robust and error-free code. Additionally, fixed database errors in Supabase (PostgreSQL), while ensuring the security of the database through implementation of row level security
+      \end{resume_employer}
+
+      \begin{resume_employer}{Nakafa \href{https://www.fibonacciku.com}{\faIcon{link}}}{Founder \& Full Stack Developer, Self-employed}{Bogor, West Java, Indonesia (Remote)}{Feb 2021 - Present}
+        \item Founded a media company driven by academic research and scientific methods, focusing on AI education for students and teachers, while also producing educational content on YouTube
+        \item Led a successful rebranding of Nakafa (previously FibonacciKu), pivoting to an AI focus and launching a personal assistant product for students and teachers. This strategic shift significantly boosted user acquisition, adding nearly 300 new users and several customers within just a month
+        \item Drove technical enhancements across the platform, including the development of a REST API using serverless functions in Vercel and edge runtime for improved latency. Implemented OpenAI's streaming API for a superior user experience
+        \item Redesigned the frontend using NextJS and Tailwind CSS, integrated a secure payment gateway with Stripe, and created an engaging 3D-rendered website with Three.js
+        \item Masterminded the design of a Supabase database from scratch, ensuring row-level security across tables. Enabled real-time data usage for the chat discussion feature, fostering interactive and dynamic user engagement.
       \end{resume_employer}
 
       \begin{resume_employer}{Institute for Sustainability}{Working Student, Part-time}{Nürnberg, Germany}{August 2021 - September 2022}
-        \item Analyzed, evaluated, and approved research data
-        \item Developed research in artificial intelligence, data science, and sustainability's area
-        \item Created articles for Institute's social media and achieved up to 166\% new engagement
+        \item Spearheaded research in artificial intelligence, data science, and sustainability, guided by rigorous analysis and evaluation of key data
+        \item Boosted engagement on the Institute's social media platforms by 166\%, through the creation of accessible and engaging articles based on our research findings
+        \item Contributed to the Institute's sustainability mission through impactful research and effective communication of sustainability issues
       \end{resume_employer}
-
-        \begin{resume_employer}{Appen}{Data Collector, Freelance}{Germany}{April 2021 - Feb 2022}
-          \item Improved the relevancy of the newsfeed for the leading global social media platform
-          \item Collected videos to help drive advances in computer vision applications for a major technology company
-        \end{resume_employer}
-    \end{resume_section}
-
-    \begin{resume_section}{Projects}
-        \begin{resume_project}{Kaggle}{Prediction Competition}{}{June 2021}
-          \item Predicted the auction sale price for a piece of heavy equipment to create a "blue book" for bulldozers using regression in time series data
-          \item Created a neural network model and determined the breed of a dog in an image using TensorFlow
-        \end{resume_project}
     \end{resume_section}
 \end{document}
